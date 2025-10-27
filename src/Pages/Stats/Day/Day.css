@@ -1,0 +1,167 @@
+/* .today .Cyber h2 {
+    transform: rotate(-90deg);
+    width: 80px;
+    margin-right: -120px;
+    margin-left: 60px;
+    
+} */
+
+.Cyber {
+    background-color: #4c85b3;
+}
+.Other {
+    background-color: #0463b3;
+}
+
+.CyberMax {
+    background-color: #1b900a; /* Бежевый */
+}
+
+.CyberPacket {
+    background-color: #066260; /* Лавандовый */
+}
+
+
+.CyberStart {
+    background-color: #2ec000; /* Лавандовый */
+}
+
+.Evo {
+    background-color: #ed0b0b; /* Лавандовый */
+}
+
+.MaxPacket {
+    background-color: #061162; /* Лавандовый */
+}
+
+.NewCyberOptic {
+    background-color: #0087dd; /* Лавандовый */
+}
+
+.StartPacket {
+    background-color: #1c6206; /* Лавандовый */
+}
+
+.TotalCyber {
+    background-color:  #4c85b3; /* Лавандовый */
+}
+.TotalOther {
+    background-color: #0463b3; /* Лавандовый */
+}
+
+.TotalCyberMax {
+    background-color: #1b900a; /* Лавандовый */
+}
+
+.TotalCyberPacket {
+    background-color: #066260; /* Лавандовый */
+}
+
+.TotalCyberStart {
+    background-color: #2ec000; /* Лавандовый */
+}
+
+.TotalEvo {
+    background-color: #ed0b0b; /* Лавандовый */
+}
+
+.TotalMaxPacket {
+    background-color: #061162; /* Лавандовый */
+}
+
+.TotalNewCyberOptic {
+    background-color: #0087dd; /* Лавандовый */
+}
+
+.TotalStartPacket {
+    background-color: #1c6206; /* Лавандовый */
+}
+.ottok {
+    background-color: #ed0b0b; /* Лавандовый */
+}
+.ottok h3 {
+    font-size: 20px !important;
+}
+.ottok p {
+    font-size: 18px !important;
+}
+.ottok p span {
+    font-size: 30px !important;
+}
+
+
+
+
+.today h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.today h3 {
+    font-size: 16px;
+}
+/* .today  h2 {
+    transform: rotate(-90deg);
+    width: 79px;
+    margin-right: -110px;
+    margin-left: 70px;
+    font-size: 18px;
+    margin-bottom: -50px;
+    font-weight: 600;
+} */
+.today h2 {
+    /* transform: rotate(-90deg); */
+    width: 79px;
+    /* margin-right: -110px; */
+    /* margin-left: 70px; */
+    font-size: 18px;
+    margin-bottom: -5px;
+    font-weight: 600;
+    padding-left: 50px;
+}
+.today .totals h2 {
+    transform: rotate(-90deg);
+    width: 79px;
+    margin-right: -110px;
+    margin-left: 70px;
+    font-size: 20px;
+    margin-bottom: -50px;
+    font-weight: 600;
+}
+
+.today .block {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;  
+    padding: 10px !important;
+    margin-right: 0px !important;
+    margin-top: 8px !important;
+    margin-left: 8px !important;
+    margin-bottom: 2px !important;
+}
+.today .block:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.05); 
+}
+
+/* .Evo h2 {
+    margin-right: -90px;
+    margin-left: 90px;
+} */
+
+
+.today .block p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.today .block p span {
+    font-size: 16px;
+    font-weight: 700;
+}

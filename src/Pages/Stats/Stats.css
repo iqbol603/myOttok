@@ -1,0 +1,10 @@
+.allStat {
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 2%;
+}
+
+.allStat a {
+    font-size: 25px;
+    font-weight: 600;
+}

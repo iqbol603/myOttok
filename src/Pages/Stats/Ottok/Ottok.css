@@ -1,0 +1,282 @@
+/* .todayS .Cyber h2 {
+    transform: rotate(-90deg);
+    width: 80px;
+    margin-right: -120px;
+    margin-left: 60px;
+    
+} */
+
+.todayS {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.todayS h3 {
+    font-size: 24px;
+}
+.todayS  h2 {
+    transform: rotate(-90deg);
+    width: 79px;
+    margin-right: -110px;
+    margin-left: 70px;
+    font-size: 20px;
+    margin-bottom: -50px;
+    font-weight: 600;
+}
+.todayS .totals h2 {
+    transform: rotate(-90deg);
+    width: 79px;
+    margin-right: -110px;
+    margin-left: 70px;
+    font-size: 20px;
+    margin-bottom: -50px;
+    font-weight: 600;
+}
+
+.todayS .block {
+    background: #009838;
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;  
+    padding: 15px !important;
+    margin-right: 0px !important;
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+}
+.todayS .blockLte {
+    background: #009838;
+    color: #fff;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: transform 0.3s ease;  
+    padding: 15px !important;
+    margin-right: 0px !important;
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+}
+.todayS .block:hover {
+    background: #009838;
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .blockLte:hover {
+    background: #009838;
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .ns:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .nsLte:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .nsPb:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .pause:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .terminated:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .terminatedPause:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+.todayS .terminatedClient:hover {
+    /* background: #009838; */
+    color: #fff;
+    border-radius: 5px;
+    transform: scale(1.01); 
+}
+
+/* .Evo h2 {
+    margin-right: -90px;
+    margin-left: 90px;
+} */
+
+
+.todayS .block p {
+    font-size: 26px;
+    margin-bottom: 2px;
+}
+
+.todayS .block p span {
+    font-weight: 600;
+}
+
+table {
+    border: 1px solid;
+    font-size: 18px;
+}
+
+table tr th {
+    border: 1px solid; 
+    background-color: #009838;
+    color: #fff;
+    /* padding: 5px; */
+    padding: 0px;
+}
+table .ns td {
+    border: 1px solid; 
+    background-color: #be0303;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .ns {
+
+    transition: transform 0.3s ease;  
+
+    cursor: pointer;
+}
+table .nsLte td {
+    border: 1px solid; 
+    background-color: #7a2525;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .nsLte {
+
+    transition: transform 0.3s ease;  
+
+    cursor: pointer;
+}
+table .block td {
+    border: 1px solid; 
+    background-color: #be6703;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .blockLte td {
+    border: 1px solid; 
+    background-color: #814602;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .terminated td {
+    border: 1px solid; 
+    background-color: #035abe;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .terminatedPause td {
+    border: 1px solid; 
+    background-color: #444547;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .terminatedClient td {
+    border: 1px solid; 
+    background-color: #a35046;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .terminateds td {
+    border: 1px solid; 
+    background-color: #03a1be;
+    color: #000000;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .nsPb td {
+    border: 1px solid; 
+    background-color: #0306be;
+    color: #fff;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .pause td {
+    border: 1px solid; 
+    background-color: #e7dc02;
+    color: #000000;
+    /* padding: 10px; */
+    padding: 5px;
+    transition: transform 0.3s ease;  
+}
+table .terminated {
+    transition: transform 0.3s ease;  
+    cursor: pointer;
+}
+table .terminatedClient {
+    transition: transform 0.3s ease;  
+    cursor: pointer;
+}
+table .terminatedPause {
+    transition: transform 0.3s ease;  
+    cursor: pointer;
+}
+table .nsPb {
+    transition: transform 0.3s ease;  
+    cursor: pointer;
+}
+table .pause {
+    transition: transform 0.3s ease;  
+    cursor: pointer;
+}
+
+
+
+.search {
+    padding-top: 20px;
+}
+
+.search input#date {
+    width: 130px;
+    color: #000000;
+    font-size: 18px;
+    margin-right: 20px;
+}
+.search select {
+    color: #000000;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.search button {
+    color:#ffffff;
+    background:#0077c1;
+    border-radius: 5px;
+    border-color: #0077c1;
+    font-size: 20px;
+}
