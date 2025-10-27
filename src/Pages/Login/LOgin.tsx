@@ -13,8 +13,10 @@ interface LoginResponse {
 
 
 const Login: React.FC = () => {
-  const [login, setUsername] = useState<string>('dashboard_api');
-  const [password, setPassword] = useState<string>('8DhTrMaMxf');
+  const [login, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  // const [login, setUsername] = useState<string>('dashboard_api');
+  // const [password, setPassword] = useState<string>('8DhTrMaMxf');
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();  // Хук для перенаправления
 
@@ -49,14 +51,15 @@ const Login: React.FC = () => {
     <div className="login-form">
       <h2>Вход</h2>
       {error && <p className="error">{error}</p>}
-      {/* <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Имя пользователя:</label>
           <input
             type="text"
             id="username"
             value={login}
-            onChange={(e) => setUsername('dashboard_api')}
+            // onChange={(e) => setUsername('dashboard_api')}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
@@ -66,12 +69,13 @@ const Login: React.FC = () => {
             type="password"
             id="password"
             value={password}
-            onChange={(e) => setPassword('8DhTrMaMxf')}
+            // onChange={(e) => setPassword('8DhTrMaMxf')}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
         <button type="submit">Войти</button>
-      </form> */}
+      </form> 
     </div>
   );
 };
