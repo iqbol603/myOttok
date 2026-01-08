@@ -5,6 +5,7 @@ import Today from './Pages/Stats/Day/Day.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Stats from './Pages/Stats/Stats.tsx';
 import Login from './Pages/Login/LOgin.tsx';
+import AuthLogin from './Pages/Login/AuthLogin.tsx';
 import Ottok from './Pages/Stats/Ottok/Ottok.tsx';
 
 function App() {
@@ -26,8 +27,9 @@ function App() {
       </header> */}
        <Router>
             <Routes>
-                {/* <Route path="/" element={<Login/>} /> */}
-                <Route path="/" element={<Auth/>} />
+                <Route path="/" element={<Login/>} />
+                <Route path="/auth-login" element={<AuthLogin/>} />
+                <Route path="/auth" element={<Auth/>} />
                 <Route path="/today" element={ <Today/>} />
                 <Route path="/stats" element={ <Stats/>} />
                 <Route path="/ottok" element={ <Ottok/>} />

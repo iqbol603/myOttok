@@ -11,14 +11,42 @@ interface LoginResponse {
   };
 }
 
+// Функция для проверки валидности токена
+const isTokenValid = (): boolean => {
+  const token = localStorage.getItem('token');
+  const expiresAt = localStorage.getItem('token_expires_at');
+  
+  if (!token || !expiresAt) {
+    return false;
+  }
+  
+  try {
+    const expirationTime = new Date(expiresAt).getTime();
+    const currentTime = new Date().getTime();
+    
+    // Проверяем, не истек ли токен
+    return expirationTime > currentTime;
+  } catch (error) {
+    console.error('Ошибка при проверке токена:', error);
+    return false;
+  }
+};
 
 const Login: React.FC = () => {
-  const [login, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  // const [login, setUsername] = useState<string>('dashboard_api');
-  // const [password, setPassword] = useState<string>('8DhTrMaMxf');
+  // const [login, setUsername] = useState<string>('');
+  // const [password, setPassword] = useState<string>('');
+  const [login, setUsername] = useState<string>('dashboard_api');
+  const [password, setPassword] = useState<string>('8DhTrMaMxf');
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();  // Хук для перенаправления
+
+  // Проверка токена при загрузке компонента
+  useEffect(() => {
+    if (!isTokenValid()) {
+      // Если токена нет или он истек, перенаправляем на страницу авторизации
+      navigate('/auth-login');
+    }
+  }, [navigate]);
 
   const handleSubmit = async () => {
     // e.preventDefault();
