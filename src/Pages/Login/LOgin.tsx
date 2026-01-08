@@ -16,16 +16,40 @@ const isTokenValid = (): boolean => {
   const token = localStorage.getItem('token');
   const expiresAt = localStorage.getItem('token_expires_at');
   
+  console.log('Проверка токена:', { token: token ? 'есть' : 'нет', expiresAt });
+  
   if (!token || !expiresAt) {
+    console.log('Токен или expires_at отсутствует');
     return false;
   }
   
   try {
-    const expirationTime = new Date(expiresAt).getTime();
-    const currentTime = new Date().getTime();
+    // Пробуем разные форматы даты
+    let expirationTime: number;
     
-    // Проверяем, не истек ли токен
-    return expirationTime > currentTime;
+    // Если это timestamp (число)
+    if (!isNaN(Number(expiresAt))) {
+      expirationTime = Number(expiresAt) * 1000; // Если в секундах, переводим в миллисекунды
+      // Если уже в миллисекундах (больше чем год в миллисекундах)
+      if (Number(expiresAt) > 31536000000) {
+        expirationTime = Number(expiresAt);
+      }
+    } else {
+      // Если это строка даты
+      expirationTime = new Date(expiresAt).getTime();
+    }
+    
+    const currentTime = new Date().getTime();
+    const isValid = expirationTime > currentTime;
+    
+    console.log('Результат проверки токена:', {
+      expirationTime: new Date(expirationTime).toISOString(),
+      currentTime: new Date(currentTime).toISOString(),
+      isValid,
+      timeLeft: isValid ? Math.floor((expirationTime - currentTime) / 1000 / 60) + ' минут' : 'истек'
+    });
+    
+    return isValid;
   } catch (error) {
     console.error('Ошибка при проверке токена:', error);
     return false;
@@ -44,7 +68,7 @@ const Login: React.FC = () => {
   useEffect(() => {
     if (!isTokenValid()) {
       // Если токена нет или он истек, перенаправляем на страницу авторизации
-      navigate('/auth-login');
+      navigate('/');
     }
   }, [navigate]);
 

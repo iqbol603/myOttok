@@ -27,8 +27,8 @@ function App() {
       </header> */}
        <Router>
             <Routes>
-                <Route path="/" element={<Login/>} />
-                <Route path="/auth-login" element={<AuthLogin/>} />
+                <Route path="/" element={<AuthLogin/>} />
+                <Route path="/login" element={<Login/>} />
                 <Route path="/auth" element={<Auth/>} />
                 <Route path="/today" element={ <Today/>} />
                 <Route path="/stats" element={ <Stats/>} />

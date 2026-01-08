@@ -40,8 +40,14 @@ const AuthLogin: React.FC = () => {
         localStorage.setItem('token_expires_at', response.data.expires_at);
         
         console.log('Авторизация успешна', response.data);
+        console.log('Токен сохранен:', {
+          token: response.data.token.substring(0, 20) + '...',
+          expires_at: response.data.expires_at,
+          expires_at_type: typeof response.data.expires_at
+        });
+        
         // Перенаправляем на LOgin.tsx после успешной авторизации
-        navigate('/');
+        navigate('/login');
       } else {
         setError('Ошибка авторизации. Неверные данные.');
       }
