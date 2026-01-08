@@ -47,7 +47,7 @@ const AuthLogin: React.FC = () => {
         });
         
         // Перенаправляем на LOgin.tsx после успешной авторизации
-        navigate('/login');
+        navigate('/tekhlogin');
       } else {
         setError('Ошибка авторизации. Неверные данные.');
       }
