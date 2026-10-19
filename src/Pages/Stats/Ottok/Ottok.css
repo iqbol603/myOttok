@@ -1,282 +1,337 @@
-/* .todayS .Cyber h2 {
-    transform: rotate(-90deg);
-    width: 80px;
-    margin-right: -120px;
-    margin-left: 60px;
-    
-} */
+.ottok-page {
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 12px 32px;
+    background: #f3f6f8;
+    color: #1d2430;
+    text-align: left;
+}
 
-.todayS {
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.ottok-top {
+    width: 100%;
+    margin: 0 0 16px;
 }
-.todayS h3 {
-    font-size: 24px;
+
+.ottok-back {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: #0077c1;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
 }
-.todayS  h2 {
-    transform: rotate(-90deg);
-    width: 79px;
-    margin-right: -110px;
-    margin-left: 70px;
+
+.ottok-back:hover {
+    text-decoration: underline;
+}
+
+.ottok-page h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.ottok-note {
+    margin: 6px 0 0;
+    color: #5d6b7a;
+    font-size: 14px;
+}
+
+.ottok-card {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 16px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #e4e9ef;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(20, 36, 55, 0.05);
+}
+
+.ottok-card h2 {
+    margin: 0 0 12px;
     font-size: 20px;
-    margin-bottom: -50px;
+}
+
+.ottok-filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.ottok-filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    font-size: 13px;
     font-weight: 600;
-}
-.todayS .totals h2 {
-    transform: rotate(-90deg);
-    width: 79px;
-    margin-right: -110px;
-    margin-left: 70px;
-    font-size: 20px;
-    margin-bottom: -50px;
-    font-weight: 600;
+    color: #415064;
 }
 
-.todayS .block {
-    background: #009838;
-    color: #fff;
-    border-radius: 5px;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: transform 0.3s ease;  
-    padding: 15px !important;
-    margin-right: 0px !important;
-    margin-top: 10px !important;
-    margin-left: 10px !important;
-}
-.todayS .blockLte {
-    background: #009838;
-    color: #fff;
-    border-radius: 5px;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: transform 0.3s ease;  
-    padding: 15px !important;
-    margin-right: 0px !important;
-    margin-top: 10px !important;
-    margin-left: 10px !important;
-}
-.todayS .block:hover {
-    background: #009838;
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .blockLte:hover {
-    background: #009838;
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .ns:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .nsLte:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .nsPb:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .pause:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .terminated:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .terminatedPause:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
-}
-.todayS .terminatedClient:hover {
-    /* background: #009838; */
-    color: #fff;
-    border-radius: 5px;
-    transform: scale(1.01); 
+.ottok-filters input,
+.ottok-filters select {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border: 1px solid #cfd7e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #1d2430;
+    font-size: 16px;
 }
 
-/* .Evo h2 {
-    margin-right: -90px;
-    margin-left: 90px;
-} */
-
-
-.todayS .block p {
-    font-size: 26px;
-    margin-bottom: 2px;
-}
-
-.todayS .block p span {
-    font-weight: 600;
-}
-
-table {
-    border: 1px solid;
-    font-size: 18px;
-}
-
-table tr th {
-    border: 1px solid; 
-    background-color: #009838;
-    color: #fff;
-    /* padding: 5px; */
-    padding: 0px;
-}
-table .ns td {
-    border: 1px solid; 
-    background-color: #be0303;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .ns {
-
-    transition: transform 0.3s ease;  
-
-    cursor: pointer;
-}
-table .nsLte td {
-    border: 1px solid; 
-    background-color: #7a2525;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .nsLte {
-
-    transition: transform 0.3s ease;  
-
-    cursor: pointer;
-}
-table .block td {
-    border: 1px solid; 
-    background-color: #be6703;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .blockLte td {
-    border: 1px solid; 
-    background-color: #814602;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .terminated td {
-    border: 1px solid; 
-    background-color: #035abe;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .terminatedPause td {
-    border: 1px solid; 
-    background-color: #444547;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .terminatedClient td {
-    border: 1px solid; 
-    background-color: #a35046;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .terminateds td {
-    border: 1px solid; 
-    background-color: #03a1be;
-    color: #000000;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .nsPb td {
-    border: 1px solid; 
-    background-color: #0306be;
-    color: #fff;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .pause td {
-    border: 1px solid; 
-    background-color: #e7dc02;
-    color: #000000;
-    /* padding: 10px; */
-    padding: 5px;
-    transition: transform 0.3s ease;  
-}
-table .terminated {
-    transition: transform 0.3s ease;  
-    cursor: pointer;
-}
-table .terminatedClient {
-    transition: transform 0.3s ease;  
-    cursor: pointer;
-}
-table .terminatedPause {
-    transition: transform 0.3s ease;  
-    cursor: pointer;
-}
-table .nsPb {
-    transition: transform 0.3s ease;  
-    cursor: pointer;
-}
-table .pause {
-    transition: transform 0.3s ease;  
-    cursor: pointer;
-}
-
-
-
-.search {
-    padding-top: 20px;
-}
-
-.search input#date {
-    width: 130px;
-    color: #000000;
-    font-size: 18px;
-    margin-right: 20px;
-}
-.search select {
-    color: #000000;
-    font-size: 18px;
-    margin-right: 20px;
-}
-
-.search button {
-    color:#ffffff;
-    background:#0077c1;
-    border-radius: 5px;
+.ottok-filters input:focus,
+.ottok-filters select:focus {
+    outline: 2px solid rgba(0, 119, 193, 0.25);
     border-color: #0077c1;
-    font-size: 20px;
+}
+
+.ottok-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ottok-actions button {
+    flex: 1 1 160px;
+    height: 44px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ottok-actions button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.btn-show {
+    background: #0077c1;
+    color: #fff;
+}
+
+.btn-excel {
+    background: #009838;
+    color: #fff;
+}
+
+.ottok-error {
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fff1f1;
+    color: #9d1c1c;
+}
+
+.ottok-results {
+    margin-top: 18px;
+}
+
+.ottok-results-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ottok-results-head span {
+    color: #5d6b7a;
+    font-weight: 600;
+}
+
+.ottok-empty {
+    margin: 0;
+    color: #5d6b7a;
+}
+
+.ottok-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid #e4e9ef;
+    border-radius: 10px;
+}
+
+.ottok-page table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.ottok-results table {
+    width: max-content;
+    min-width: 560px;
+}
+
+.ottok-all-time table {
+    width: 100%;
+}
+
+.ottok-calendar {
+    overflow: visible;
+}
+
+.ottok-calendar table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    font-size: clamp(14px, 1.05vw, 16px);
+}
+
+.ottok-type-col {
+    width: 150px;
+}
+
+.ottok-page .ottok-calendar th,
+.ottok-page .ottok-calendar td {
+    padding: 7px 0;
+    overflow: visible;
+}
+
+.ottok-page .ottok-calendar th:first-child,
+.ottok-page .ottok-calendar td:first-child {
+    position: static;
+    left: auto;
+    width: 150px;
+    min-width: 0;
+    max-width: none;
+    padding: 6px 8px;
+    white-space: normal;
+    line-height: 1.25;
+}
+
+.ottok-page table th,
+.ottok-page table td {
+    border: 1px solid #d5dde6;
+    padding: 8px 10px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.ottok-page table th {
+    position: sticky;
+    top: 0;
+    background: #009838;
+    color: #fff;
+    font-weight: 700;
+}
+
+.ottok-page table th:first-child,
+.ottok-page table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    text-align: left;
+    min-width: 72px;
+}
+
+.ottok-page table th:first-child {
+    z-index: 2;
+    background: #007e2e;
+}
+
+.ottok-page table td:first-child {
+    background: #fff;
+    font-weight: 600;
+}
+
+.ottok-page table .ns td { background: #be0303; color: #fff; }
+.ottok-page table .nsLte td { background: #7a2525; color: #fff; }
+.ottok-page table .block td { background: #be6703; color: #fff; }
+.ottok-page table .blockLte td { background: #814602; color: #fff; }
+.ottok-page table .terminated td { background: #035abe; color: #fff; }
+.ottok-page table .terminatedClient td { background: #a35046; color: #fff; }
+.ottok-page table .nsPb td { background: #0306be; color: #fff; }
+.ottok-page table .pause td { background: #e7dc02; color: #1d2430; }
+
+.ottok-results tbody tr:nth-child(even) td {
+    background: #f7fafc;
+}
+
+.ottok-results tbody td:first-child {
+    background: #fff;
+}
+
+@media (min-width: 720px) {
+    .ottok-page {
+        padding: 16px 12px 32px;
+    }
+
+    .ottok-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ottok-actions {
+        grid-column: 1 / -1;
+    }
+
+    .ottok-actions button {
+        flex: 0 0 auto;
+        min-width: 160px;
+        padding: 0 18px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .ottok-filters {
+        grid-template-columns: 160px 160px minmax(220px, 1.5fr) minmax(190px, 1fr);
+        align-items: end;
+    }
+
+    .ottok-actions {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 899px) {
+    .ottok-calendar {
+        overflow-x: auto;
+    }
+
+    .ottok-calendar table {
+        width: max-content;
+        min-width: 100%;
+        table-layout: auto;
+        font-size: 14px;
+    }
+
+    .ottok-calendar th:not(:first-child),
+    .ottok-calendar td:not(:first-child) {
+        min-width: 34px;
+    }
+}
+
+@media (max-width: 719px) {
+    .ottok-page h1 {
+        font-size: 24px;
+    }
+
+    .ottok-results-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .ottok-card {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .ottok-page table {
+        font-size: 13px;
+    }
+
+    .ottok-page table th:first-child,
+    .ottok-page table td:first-child {
+        max-width: 150px;
+        white-space: normal;
+    }
 }

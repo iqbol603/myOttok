@@ -1,5 +1,7 @@
 // import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import { startTokenRefreshLoop } from './utils/auth';
 import Auth from './Pages/Auth.tsx';
 import Today from './Pages/Stats/Day/Day.tsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,6 +11,10 @@ import AuthLogin from './Pages/Login/AuthLogin.tsx';
 import Ottok from './Pages/Stats/Ottok/Ottok.tsx';
 
 function App() {
+  useEffect(() => {
+    startTokenRefreshLoop();
+  }, []);
+
   return (
     <div className="App">
       {/* <header className="App-header">

@@ -11,7 +11,7 @@ import {
     Legend,
 } from 'chart.js';  // Импортируем необходимые компоненты из chart.js
 import './Day.css';
-import { useNavigate } from 'react-router-dom';
+import { refreshDashboardToken } from '../../../utils/auth';
 
 // Регистрация компонентов Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -40,12 +40,8 @@ const Today = () => {
     const [AllTimelack_of_funds, setAllTimeLack_of_funds] = useState([]);  // Массив для итоговых данных
     const [AllTimepaid_block, setAllTimePaid_block] = useState([]);  // Массив для итоговых данных
 
-    const navigate = useNavigate();  // Хук для перенаправления
-
-
     const refreshToken = () => {
-        localStorage.clear();
-        navigate('/');
+        refreshDashboardToken().catch(() => {});
     }
 
     useEffect(() => {
@@ -325,90 +321,91 @@ const Today = () => {
     return (
         <div>
             <div className='today'>
-                <h1>За сегодня</h1>
-                <div className={`d-block `}>
-                    <h2></h2>
-                    <div className='d-flex flex-wrap'>
-
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                <section className="stat-section">
+                    <h1>За сегодня</h1>
+                    <div className="stat-cards">
+                        <div className="block ottok">
                             <h3>Недостаточно средств</h3>
                             <p>Абоненты:<span>{lack_of_funds || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Платная блокировка</h3>
                             <p>Абоненты:<span>{paid_block || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Договор расторгнут</h3>
                             <p>Абоненты:<span>{terminated || 0}</span></p>
                         </div>
-                        За неделю
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                    </div>
+                </section>
+                <section className="stat-section">
+                    <h2>За неделю</h2>
+                    <div className="stat-cards">
+                        <div className="block ottok">
                             <h3>Недостаточно средств</h3>
                             <p>Абоненты:<span>{Weeklack_of_funds || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Платная блокировка</h3>
                             <p>Абоненты:<span>{Weekpaid_block || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Договор расторгнут</h3>
                             <p>Абоненты:<span>{Weekterminated || 0}</span></p>
                         </div>
-
                     </div>
-                    <label>За этот месяц</label>
-                    <div className='d-flex flex-wrap'>
-
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                </section>
+                <section className="stat-section">
+                    <h2>За этот месяц</h2>
+                    <div className="stat-cards">
+                        <div className="block ottok">
                             <h3>Недостаточно средств</h3>
                             <p>Абоненты:<span>{ThisMonthlack_of_funds || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Платная блокировка</h3>
                             <p>Абоненты:<span>{ThisMonthpaid_block || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Договор расторгнут</h3>
                             <p>Абоненты:<span>{ThisMonthterminated || 0}</span></p>
                         </div>
-
                     </div>
-                    <label>Отток за предыдущий месяц </label>
-                    <div className='d-flex flex-wrap'>
-
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                </section>
+                <section className="stat-section">
+                    <h2>Отток за предыдущий месяц</h2>
+                    <div className="stat-cards">
+                        <div className="block ottok">
                             <h3>Недостаточно средств</h3>
                             <p>Абоненты:<span>{PrevMonthlack_of_funds || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Платная блокировка</h3>
                             <p>Абоненты:<span>{PrevMonthpaid_block || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Договор расторгнут</h3>
                             <p>Абоненты:<span>{PrevMonthterminated || 0}</span></p>
                         </div>
-
                     </div>
-                    <label>Отток за все время </label>
-                    <div className='d-flex flex-wrap'>
-
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                </section>
+                <section className="stat-section">
+                    <h2>Отток за все время</h2>
+                    <div className="stat-cards">
+                        <div className="block ottok">
                             <h3>Недостаточно средств</h3>
                             <p>Абоненты:<span>{AllTimelack_of_funds || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Платная блокировка</h3>
                             <p>Абоненты:<span>{AllTimepaid_block || 0}</span></p>
                         </div>
-                        <div className={`block ottok m-4 p-4 border border-gray-300`} style={{ minWidth: '200px' }}>
+                        <div className="block ottok">
                             <h3>Договор расторгнут</h3>
                             <p>Абоненты:<span>{AllTimeterminated || 0}</span></p>
                         </div>
-
                     </div>
-                </div>
+                </section>
 
                 {data ? (
                     <>

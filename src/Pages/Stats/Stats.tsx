@@ -5,14 +5,20 @@ import ThisMoth from './Week/Month/ThisMonth.tsx';
 import PrevMoth from './Week/Month/PrevMonth.tsx';
 import AllTime from './AllTime/AllTime.tsx';
 import './Stats.css';
+import { refreshDashboardToken } from '../../utils/auth';
 
 const Stats = () => {
     useEffect(() => {
-        const interval = setInterval(() => {
-            window.location.reload();  // Перезагрузка страницы
-        }, 600000);  // Обновление каждые 5 минут (300000 миллисекунд)
+        const interval = setInterval(async () => {
+            try {
+                await refreshDashboardToken();
+            } catch (error) {
+                // Следующий запрос повторит обновление токена.
+            }
+            window.location.reload();
+        }, 300000);
 
-        return () => clearInterval(interval);  // Очистка таймера при размонтировании компонента
+        return () => clearInterval(interval);
     }, []);
 
         return (

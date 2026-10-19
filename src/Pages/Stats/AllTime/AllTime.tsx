@@ -60,26 +60,71 @@ const AllTime = () => {
 
     // console.log("total",totals);
 
-    // Подготовка данных для графика
+    const barColors = {
+        TotalCyber: '#4c85b3',
+        TotalOther: '#0463b3',
+        TotalCyberMax: '#1b900a',
+        TotalCyberPacket: '#066260',
+        TotalCyberStart: '#2ec000',
+        TotalEvo: '#ed0b0b',
+        TotalMaxPacket: '#061162',
+        TotalNewCyberOptic: '#0087dd',
+        TotalStartPacket: '#1c6206',
+    };
+    const chartLabels = Object.keys(totals);
     const chartData = {
-        labels: Object.keys(totals), // Названия категорий
+        labels: chartLabels,
         datasets: [
             {
                 label: 'Общая сумма (TJS)',
-                data: Object.values(totals).map(item => item.total_discount_with_tax || 0), // Суммы по категориям
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-                height:500,
+                data: chartLabels.map((key) => totals[key]?.total_discount_with_tax || 0),
+                backgroundColor: chartLabels.map((key) => barColors[key] || '#4c85b3'),
+                borderRadius: 6,
+                maxBarThickness: 72,
             },
         ],
     };
 
     const chartOptions = {
         responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+            padding: { top: 8, right: 12, bottom: 4, left: 4 },
+        },
+        plugins: {
+            legend: {
+                position: 'top' as const,
+                align: 'start' as const,
+                labels: {
+                    font: { size: 14 },
+                    boxWidth: 14,
+                    padding: 16,
+                },
+            },
+            tooltip: {
+                callbacks: {
+                    label: (context) => ` ${Number(context.parsed.y || 0).toLocaleString('ru-RU')} TJS`,
+                },
+            },
+        },
         scales: {
+            x: {
+                grid: { display: false },
+                ticks: {
+                    font: { size: 13 },
+                    color: '#1d2430',
+                    maxRotation: 40,
+                    minRotation: 40,
+                    autoSkip: false,
+                },
+            },
             y: {
                 beginAtZero: true,
+                ticks: {
+                    font: { size: 13 },
+                    color: '#415064',
+                    callback: (value) => Number(value).toLocaleString('ru-RU'),
+                },
             },
         },
     };
@@ -135,7 +180,9 @@ const AllTime = () => {
                         {/* Добавляем график итоговых данных */}
                         <div className="chart">
                             <h4>График итоговых данных</h4>
-                            <Bar data={chartData} options={chartOptions} />
+                            <div className="chart-canvas">
+                                <Bar data={chartData} options={chartOptions} />
+                            </div>
                         </div>
                     </>
                 ) : (

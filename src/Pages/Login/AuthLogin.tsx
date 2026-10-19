@@ -1,11 +1,13 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useEffect, useState, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { isUserSessionValid, refreshDashboardToken, saveUserSession } from '../../utils/auth';
 
 interface LoginResponse {
   ok: boolean;
   token: string;
   expires_at: string;
+  refresh_token?: string;
 }
 
 const AuthLogin: React.FC = () => {
@@ -13,41 +15,54 @@ const AuthLogin: React.FC = () => {
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [checkingSession, setCheckingSession] = useState<boolean>(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const continueSession = async () => {
+      if (!isUserSessionValid()) {
+        if (!cancelled) setCheckingSession(false);
+        return;
+      }
+
+      try {
+        await refreshDashboardToken();
+        if (!cancelled) navigate('/stats', { replace: true });
+      } catch (err) {
+        if (!cancelled) {
+          setError('Сессия есть, но не удалось обновить доступ. Войдите ещё раз.');
+          setCheckingSession(false);
+        }
+      }
+    };
+
+    continueSession();
+    return () => {
+      cancelled = true;
+    };
+  }, [navigate]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    
+
     try {
       const response = await axios.post<LoginResponse>(
         'https://wifi.babilon-t.tj/pages/loginOttok.php',
-        {
-          login,
-          password
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
+        { login, password },
+        { headers: { 'Content-Type': 'application/json' } }
       );
-      
+
       if (response.data.ok && response.data.token) {
-        // Сохраняем токен и время истечения
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('token_expires_at', response.data.expires_at);
-        
-        console.log('Авторизация успешна', response.data);
-        console.log('Токен сохранен:', {
-          token: response.data.token.substring(0, 20) + '...',
-          expires_at: response.data.expires_at,
-          expires_at_type: typeof response.data.expires_at
-        });
-        
-        // Перенаправляем на LOgin.tsx после успешной авторизации
-        navigate('/tekhlogin');
+        saveUserSession(response.data.token, response.data.expires_at);
+        if (response.data.refresh_token) {
+          localStorage.setItem('refresh_token', response.data.refresh_token);
+        }
+        await refreshDashboardToken();
+        navigate('/stats', { replace: true });
       } else {
         setError('Ошибка авторизации. Неверные данные.');
       }
@@ -61,6 +76,14 @@ const AuthLogin: React.FC = () => {
       setLoading(false);
     }
   };
+
+  if (checkingSession) {
+    return (
+      <div className="login-form">
+        <h2>Проверяем сессию…</h2>
+      </div>
+    );
+  }
 
   return (
     <div className="login-form">
@@ -92,10 +115,9 @@ const AuthLogin: React.FC = () => {
         <button type="submit" disabled={loading}>
           {loading ? 'Вход...' : 'Войти'}
         </button>
-      </form> 
+      </form>
     </div>
   );
 };
 
 export default AuthLogin;
-

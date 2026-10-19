@@ -1,10 +1,46 @@
 .allStat {
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 2%;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 16px 32px;
+    text-align: left;
 }
 
 .allStat a {
-    font-size: 25px;
-    font-weight: 600;
+    display: inline-flex;
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0077c1;
+    text-decoration: none;
+}
+
+.allStat a:hover {
+    text-decoration: underline;
+}
+
+.chart {
+    margin-top: 28px;
+    padding: 16px 16px 8px;
+    background: #fff;
+    border: 1px solid #e4e9ef;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.chart h4 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    text-align: left;
+}
+
+.chart-canvas {
+    position: relative;
+    width: 100%;
+    height: 460px;
+}
+
+@media (max-width: 800px) {
+    .chart-canvas {
+        height: 520px;
+    }
 }
